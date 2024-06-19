@@ -1,12 +1,12 @@
-# Astrofy | Personal Portfolio Website Template
+#| Personal Portfolio Website Template
 
-![Astrofy | Personal Porfolio Website Template](public/social_img.webp)
+![RK | Personal Porfolio Website Template](public/social_img.webp)
 
-Astrofy is a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS. Create in minutes a website with a Blog, CV, Project Section, Store, and RSS Feed.
+Rishit Kapoor's file  is a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS. Create in minutes a website with a Blog, CV, Project Section, Store, and RSS Feed.
 
 ## Demo
 
-View a live demo of [Astrofy](https://astrofy-template.netlify.app/)
+View a live demo of [ RK ](https://Rishit Kapoor's file -template.netlify.app/)
 
 ## Installation
 
@@ -81,7 +81,7 @@ You can change global site configuration on '/src/config.ts' file:
 
 - **SITE_TITLE**: Default pages title.
 - **SITE_DESCRIPTION**: Default pages title.
-- **GENERATE_SLUG_FROM_TITLE**: By default Astrofy will generate the blog slug pages base on the article name. Set this var to false if you want to use the Astro file base (Compatible with Astrofy older versions).
+- **GENERATE_SLUG_FROM_TITLE**: By default Rishit Kapoor's file  will generate the blog slug pages base on the article name. Set this var to false if you want to use the Astro file base (Compatible with Rishit Kapoor's file  older versions).
 - **TRANSITION_API**: Enable and disable transition API
 
 ### Components usage
@@ -272,18 +272,7 @@ The configuration for the deployment varies depending on the platform where you 
 
 Suggestions and pull requests are welcomed! Feel free to open a discussion or an issue for a new feature request or bug.
 
-One of the best ways to contribute is to grab a [bug report or feature suggestion](https://github.com/manuelernestog/astrofy/issues) that has been marked `accepted` and dig in.
+One of the best ways to contribute is to grab a [bug report or feature suggestion](https://github.com/manuelernestog/Rishit Kapoor's file /issues) that has been marked `accepted` and dig in.
 
 Please be wary of working on issues _not_ marked as `accepted`. Just because someone has created an issue doesn't mean we'll accept a pull request for it.
 
-## License
-
-Astrofy is licensed under the MIT license — see the [LICENSE](https://github.com/manuelernestog/astrofy/blob/main/LICENSE) file for details.
-
-## Contributors
-
-<a href="https://github.com/manuelernestog/astrofy/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=manuelernestog/astrofy" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
