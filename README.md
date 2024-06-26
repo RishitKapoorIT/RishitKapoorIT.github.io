@@ -1,6 +1,4 @@
-#| Personal Portfolio Website Template
 
-![RK | Personal Porfolio Website Template](public/social_img.webp)
 
 Rishit Kapoor's file  is a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS. Create in minutes a website with a Blog, CV, Project Section, Store, and RSS Feed.
 
