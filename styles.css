@@ -1,51 +1,62 @@
+/* Global Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: #1a1a1a;
+  color: #fff;
 }
 
+/* Headings */
 h2 {
-  color: #333;
+  color: #e74c3c;
+  margin-bottom: 10px;
 }
 
+/* Links */
 a {
-  color: #3498db;
+  color: #e74c3c;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 a:hover {
+  color: #c0392b;
   text-decoration: underline;
 }
 
+/* Preformatted Text and Code Blocks */
 pre {
   background-color: #333;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
+  overflow-x: auto;
 }
 
 code {
-  background-color: #eee;
+  background-color: #444;
+  color: #fff;
   padding: 2px 5px;
   border-radius: 3px;
 }
 
+/* Lists */
 ul {
   list-style-type: none;
   padding: 0;
 }
 
 ul li {
-  background: #eee;
+  background: #444;
   margin: 5px 0;
   padding: 10px;
-  border-left: 4px solid #3498db;
+  border-left: 4px solid #e74c3c;
 }
 
 li a {
-  color: #333;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -53,9 +64,53 @@ li a:hover {
   text-decoration: underline;
 }
 
+/* Notes */
 .note {
-  background: #ffffe0;
-  border-left: 4px solid #ffd700;
+  background: #333;
+  border-left: 4px solid #e74c3c;
   padding: 10px;
   margin: 20px 0;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #c0392b;
+}
+
+/* Layout Containers */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Highlighted Text */
+.highlight {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Adding a Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  color: #888;
 }
