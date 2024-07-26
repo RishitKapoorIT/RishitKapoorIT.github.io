@@ -1,3 +1,52 @@
+winget install Schniz.fnm
+fnm use --install-if-missing 20
+node -v # should print `v20.16.0`
+npm -v # should print `10.8.1`
+
+
+npm install -D tailwindcss
+npx tailwindcss init
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+</body>
+</html>
+
+
+npm i -D daisyui@latest
+
+module.exports = {
+  //...
+  plugins: [
+    require('daisyui'),
+  ],
+}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
