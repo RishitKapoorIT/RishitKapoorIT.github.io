@@ -1,12 +1,22 @@
+# Personal Portfolio Template
+
+## Demo
+View a live demo of [Rishit Kapoor's Portfolio Template](https://example-portfolio-template.netlify.app/).
+
+## Installation
+
+### Step 1: Environment Setup
+```bash
 winget install Schniz.fnm
 fnm use --install-if-missing 20
 node -v # should print `v20.16.0`
 npm -v # should print `10.8.1`
 
-
-npm install -D tailwindcss
+Step 2: Install Tailwind CSS
+ npm install -D tailwindcss
 npx tailwindcss init
 
+Step 3: Configure 'tailwind.config.js'
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,js}"],
@@ -16,12 +26,10 @@ module.exports = {
   plugins: [],
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+Step 5: Run Tailwind CSS
+npx tailwindcss -i ./src/styles.css -o ./src/output.css --watch
 
-npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
-
+Step 6: Basic HTML File
 <!doctype html>
 <html>
 <head>
@@ -36,130 +44,103 @@ npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
 </body>
 </html>
 
-
+Step 7: Install DaisyUI
 npm i -D daisyui@latest
 
+Step 8: Update 'tailwind.config.js' to Include DaisyUI
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  //...
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
   plugins: [
     require('daisyui'),
   ],
 }
 
+Project Structure
+├── src/
+│   ├── components/
+│   │   ├── cv/
+│   │   │   ├── TimeLine
+│   │   ├── BaseHead.astro
+│   │   ├── Card.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   └── HorizontalCard.astro
+│   │   └── SideBar.astro
+│   │   └── SideBarMenu.astro
+│   │   └── SideBarFooter.astro
+│   ├── content/
+│   │   ├── blog/
+│   │   │   ├── post1.md
+│   │   │   ├── post2.md
+│   │   │   └── post3.md
+│   │   ├── store/
+│   │   │   ├── item1.md
+│   │   │   ├── item2.md
+│   ├── layouts/
+│   │   └── BaseLayout.astro
+│   │   └── PostLayout.astro
+│   └── pages/
+│   │   ├── blog/
+│   │   │   ├── [...page].astro
+│   │   │   ├── [slug].astro
+│   │   └── cv.astro
+│   │   └── index.astro
+│   │   └── projects.astro
+│   │   └── rss.xml.js
+│   ├── styles/
+│   │   └── global.css
+│   └── config.ts
+├── public/
+│   ├── favicon.svg
+│   └── profile.webp
+│   └── social_img.webp
+├── astro.config.mjs
+├── tailwind.config.cjs
+├── package.json
+└── tsconfig.json
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h2>Rishit Kapoor's file</h2>
-    <p>
-      is a free and open-source template for your Personal Portfolio Website built with Astro and Tailwind CSS. Create in minutes a website with a Blog, CV, Project Section, Store, and RSS Feed.
-    </p>
-    <h2>Demo</h2>
-    <p>View a live demo of <a href="https://Rishit Kapoor's file -template.netlify.app/"> RK </a></p>
-    <h2>Installation</h2>
-    <pre><code>pnpm install</code></pre>
-    <pre><code>pnpm run dev</code></pre>
-    <h2>Tech Stack</h2>
-    <ul>
-      <li><a href="https://astro.build">Astro</a></li>
-      <li><a href="https://tailwindcss.com/">tailwindcss</a></li>
-      <li><a href="https://daisyui.com/">DaisyUI</a></li>
-    </ul>
-    <h2>Project Structure</h2>
-    <pre><code>
-    ├── src/
-    │   ├── components/
-    │   │   ├── cv/
-    │   │   │   ├── TimeLine
-    │   │   ├── BaseHead.astro
-    │   │   ├── Card.astro
-    │   │   ├── Footer.astro
-    │   │   ├── Header.astro
-    │   │   └── HorizontalCard.astro
-    │   │   └── SideBar.astro
-    │   │   └── SideBarMenu.astro
-    │   │   └── SideBarFooter.astro
-    │   ├── content/
-    │   │   ├── blog/
-    │   │   │   ├── post1.md
-    │   │   │   ├── post2.md
-    │   │   │   └── post3.md
-    │   │   ├── store/
-    │   │   │   ├── item1.md
-    │   │   │   ├── item2.md
-    │   ├── layouts/
-    │   │   └── BaseLayout.astro
-    │   │   └── PostLayout.astro
-    │   └── pages/
-    │   │   ├── blog/
-    │   │   │   ├── [...page].astro
-    │   │   │   ├── [slug].astro
-    │   │   └── cv.astro
-    │   │   └── index.astro
-    │   │   └── projects.astro
-    │   │   └── rss.xml.js
-    │   ├── styles/
-    │   │   └── global.css
-    │   └── config.ts
-    ├── public/
-    │   ├── favicon.svg
-    │   └── profile.webp
-    │   └── social_img.webp
-    ├── astro.config.mjs
-    ├── tailwind.config.cjs
-    ├── package.json
-    └── tsconfig.json
-    </code></pre>
-    <h2>Site config</h2>
-    <p>You can change global site configuration on '/src/config.ts' file:</p>
-    <ul>
-      <li><span class="highlight">SITE_TITLE</span>: Default pages title.</li>
-      <li><span class="highlight">SITE_DESCRIPTION</span>: Default pages title.</li>
-      <li><span class="highlight">GENERATE_SLUG_FROM_TITLE</span>: By default Rishit Kapoor's file  will generate the blog slug pages base on the article name. Set this var to false if you want to use the Astro file base (Compatible with Rishit Kapoor's file  older versions).</li>
-      <li><span class="highlight">TRANSITION_API</span>: Enable and disable transition API</li>
-    </ul>
-    <h2>Components usage</h2>
-    <h3>Layout Components</h3>
-    <p>The `BaseHead`, `Footer`, `Header`, and `SideBar` components are already included in the layout system. To change the website content you can edit the content of these components.</p>
-    <h4>SideBar</h4>
-    <p>In the Sidebar you can change your profilePicture, links to all your website pages, and your social icons.</p>
-    <p>You can change your avatar shape using <a href="https://daisyui.com/components/mask/">mask classes</a>.</p>
-    <p>The used social-icons are SVG form <a href="https://boxicons.com/">BoxIcons</a> pack. You can replace the icons in the `SideBarFooter` component.</p>
-    <p>To add a new page in the sidebar go to the `SideBarMenu` component.</p>
-    <pre><code>
-    <li><a class="py-3 text-base" id="home" href="/">Home</a></li>
-    </code></pre>
-    <p><span class="note">Note: In order to change the sidebar menu's active item, you need to setup the prop `sideBarActiveItemID` in the `BaseLayout` component of your new page and add that id to the link in the `SideBarMenu`</span></p>
-    <h4>TimeLine</h4>
-    <p>The timeline components are used to confirm the CV.</p>
-    <pre><code>
-    <div class="time-line-container">
-      <TimeLineElement title="Element Title" subtitle="Subtitle">
-        Content that can contain
-        <div>divs</div>
-        and <span>anything else you want</span>.
-      </TimeLineElement>
-      ...
-    </div>
-    </code></pre>
-    <h4>Card & HorizontalCard</h4>
-    <p>The cards are primarly used for the Project and the Blog components. They include a picture, a title, and a description.</p>
-    <pre><code>
-<HorizontalCard title="Card Title" img="imge_url" desc="Description" url="Link URL" target="Optional link target (_blank default)" badge="Optional badge" tags={['Array','of','tags']} />
-</code></pre>
-<h4>HorizontalCard Shop Item</h4>
-<p>This component is already included in the Store layout of the template. In case you want to use it in another place these are the props.</p>
-<pre><code>
+Site Configuration
+You can change global site configuration in the /src/config.ts file:
+
+SITE_TITLE: Default pages title.
+SITE_DESCRIPTION: Default pages description.
+GENERATE_SLUG_FROM_TITLE: By default, it generates the blog slug pages based on the article name. Set this to false to use the Astro file base (compatible with older versions).
+TRANSITION_API: Enable or disable transition API.
+Components Usage
+Layout Components
+The BaseHead, Footer, Header, and SideBar components are included in the layout system. Edit these components to change the website content.
+
+SideBar
+In the Sidebar, you can change your profile picture, links to all your website pages, and your social icons. You can change your avatar shape using mask classes. The social icons are from the BoxIcons pack. You can replace the icons in the SideBarFooter component. To add a new page in the sidebar, go to the SideBarMenu component.
+<li><a class="py-3 text-base" id="home" href="/">Home</a></li>
+
+Note: To change the sidebar menu's active item, set the prop sideBarActiveItemID in the BaseLayout component of your new page and add that ID to the link in the SideBarMenu.
+
+TimeLine
+The timeline components are used to confirm the CV.
+<div class="time-line-container">
+  <TimeLineElement title="Element Title" subtitle="Subtitle">
+    Content that can contain
+    <div>divs</div>
+    and <span>anything else you want</span>.
+  </TimeLineElement>
+  ...
+</div>
+
+
+Card & HorizontalCard
+The cards are primarily used for the Project and Blog components, including a picture, title, and description.
+<HorizontalCard title="Card Title" img="img_url" desc="Description" url="Link URL" target="Optional link target (_blank default)" badge="Optional badge" tags={['Array','of','tags']} />
+
+HorizontalCard Shop Item
+This component is included in the Store layout of the template. Use the following props:
 <HorizontalShopItem
   title="Item Title"
-  img="imge_url"
+  img="img_url"
   desc="Item description"
   pricing="current_price"
   oldPricing="old_price"
@@ -167,58 +148,59 @@ module.exports = {
   badge="Optional badge"
   url="item details url"
   custom_link="Custom link url"
-  custom_link_label="Cutom link btn label"
+  custom_link_label="Custom link btn label"
   target="Optional link target (_self default)"
 />
-</code></pre>
-<h4>Adding a Custom Component</h4>
-<p>To add a custom component, you can create a .astro file in the components folder under the source folder.</p>
-<p>Components must follow this template. The <code>---</code> represents the code fence and uses Javascript and can be used for imports. The HTML component is the actual style of your new component.</p>
-<pre><code>
+
+Adding a Custom Component
+To add a custom component, create a .astro file in the components folder under the src folder. Components must follow this template:
 ---
 <!-- Component Script (JavaScript) -->
 ---
 <!-- Component Template (HTML + JS Expressions) -->
-</code></pre>
-<p>For more details, see the <a href="https://docs.astro.build/en/core-concepts/astro-components/">astro components</a> documentation here.</p>
-<h4>Layouts</h4>
-<p>Include <code>BaseLayout</code> in each page you add and <code>PostLayout</code> to your post pages.</p>
-<p>The BaseLayout defines a general template for each new webpage you want to add. It imports constants SITE_TITLE and SITE_DESCRIPTION which can be modified in the <code>../config</code> folder. Data placed there can be imported anywhere using import.</p>
-<h4>Content</h4>
-<p>You can add a <a href="https://docs.astro.build/en/guides/content-collections/">content collection</a> in <code>/content/' folder, you will need add it at config.ts.</p>
-<h4>config.ts</h4>
-<p>Where you need to define your content collections, we define our content schemas too.</p>
-<h4>Blog</h4>
-<p>Add your <code>md</code> blog post in the <code>/content/blog/</code> folder.</p>
-<h4>Post format</h4>
-<p>Add code with this format in the top of each post file.</p>
-<pre><code>
+For more details, see the Astro components documentation.
+
+Layouts
+Include BaseLayout in each page you add and PostLayout to your post pages. The BaseLayout defines a general template for each new webpage. It imports constants SITE_TITLE and SITE_DESCRIPTION which can be modified in the ../config folder.
+
+Content
+Add a content collection in the /content/ folder. You will need to add it in config.ts.
+
+Blog
+Add your .md blog post in the /content/blog/ folder.
+
+Post Format
+Add the following code at the top of each post file:
 ---
 title: "Post Title"
 description: "Description"
-pubDate: "Post date format(Sep 10 2022)"
+pubDate: "Post date format (Sep 10 2022)"
 heroImage: "Post Hero Image URL"
 ---
-</code></pre>
-<h4>Pages</h4>
-<h4>Blog</h4>
-<p>Blog uses Astro's content collection to query post's <code>md</code>.</p>
-<h4>[page].astro</h4>
-<p>The <code>[page].astro</code> is the route to work with the paginated post list. You can change there the number of items listed for each page and the pagination button labels.</p>
-<h4>[slug].astro</h4>
-<p>The <code>[slug].astro</code> is the base route for every blog post, you can customize the page layout or behaviour, by default uses <code>content/blog</code> for content collection and <code>PostLayout</code> as layout.</p>
-<h4>Shop</h4>
-<p>Add your <code>md</code> item in the <code>/pages/shop/</code> folder.</p>
-<h4>[page].astro</h4>
-<p>The <code>[page].astro</code> is the route to work with the paginated item list. You can change there the number of items listed for each page and the pagination button labels. The shop will render all <code>.md</code> files you include inside this folder.</p>
-<h4>Item format</h4>
-<p>Add code with this format at the top of each item file.</p>
-<pre><code>
+
+Pages
+Blog
+The blog uses Astro's content collection to query post's .md.
+
+[page].astro
+The [page].astro route works with the paginated post list. Change the number of items listed for each page and the pagination button labels here.
+
+[slug].astro
+The [slug].astro route is the base for every blog post. Customize the page layout or behavior. By default, it uses content/blog for content collection and PostLayout as layout.
+
+Shop
+Add your .md item in the /pages/shop/ folder.
+
+[page].astro
+The [page].astro route works with the paginated item list. Change the number of items listed for each page and the pagination button labels here. The shop will render all .md files inside this folder.
+
+Item Format
+Add the following code at the top of each item file:
 ---
 title: "Demo Item 1"
 description: "Item description"
-heroImage: "Item img url"
-details: true // show or hide details btn
+heroImage: "Item img URL"
+details: true # show or hide details btn
 custom_link_label: "Custom btn link label"
 custom_link: "Custom btn link"
 pubDate: "Sep 15 2022"
@@ -227,22 +209,20 @@ oldPricing: "$25.5"
 badge: "Featured"
 checkoutUrl: "https://checkouturl.com/"
 ---
-</code></pre>
-<h4>Static pages</h4>
-<p>The other pages included in the template are static pages. The <code>index</code> page belongs to the root page. You can add your pages directly in the <code>/pages</code> folder and then add a link to those pages in the <code>sidebar</code> component.</p>
-<p>Feel free to modify the content included in the pages that the template contains or add the ones you need.</p>
-<h4>Theming</h4>
-<p>To change the template theme change the <code>data-theme</code> attribute of the <code>&lt;html&gt;</code> tag in <code>BaseLayout.astro</code> file.</p>
-<p>You can choose among 30 themes available or create your custom theme. See themes available <a href="https://daisyui.com/docs/themes/">here</a>.</p>
-<h4>Sitemap</h4>
-<p>The Sitemap is generated automatically when you build your website in the root of the domain. Please update the <code>robots.txt</code> file in the public folder with your site name URL for the Sitemap.</p>
-<h4>Deploy</h4>
-<p>You can deploy your site on your favourite static hosting service such as Vercel, Netlify, GitHub Pages, etc.</p>
-<p>The configuration for the deployment varies depending on the platform where you are going to do it. See the <a href="https://docs.astro.build/en/guides/deploy/">official Astro information</a> to deploy your website.</p>
-<p><span class="note"><strong>⚠️ CAUTION</strong><br>The Blog pagination of this template is implemented using dynamic route parameters in its filename and for now this format is incompatible with SSR deploy configs, so please use the default static deploy options for your deployments.</span></p>
-</div>
-<footer>
-  <p>© 2024 Rishit Kapoor's file</p>
-</footer>
-</body>
-</html>
+
+Static Pages
+The other pages included in the template are static pages. The index page belongs to the root page. Add your pages directly in the /pages folder and then add a link to those pages in the sidebar component.
+
+Theming
+To change the template theme, change the data-theme attribute of the <html> tag in the BaseLayout.astro file. Choose among 30 themes available or create your custom theme. See themes available here.
+
+Sitemap
+The Sitemap is generated automatically when you build your website in the root of the domain. Update the robots.txt file in the public folder with your site name URL for the Sitemap.
+
+Deploy
+You can deploy your site on your favorite static hosting service such as Vercel, Netlify, GitHub Pages, etc. Configuration for deployment varies depending on the platform. See the official Astro information to deploy your website.
+
+Note: The Blog pagination of this template is implemented using dynamic route parameters in its filename and is incompatible with SSR deploy configs. Use the default static deploy options for your deployments.
+
+This separation should help in maintaining clear and organized files for your project.
+
