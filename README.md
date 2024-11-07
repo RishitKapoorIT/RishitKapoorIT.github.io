@@ -1,228 +1,178 @@
-# Personal Portfolio Template
-
-## Demo
-View a live demo of [Rishit Kapoor's Portfolio Template](https://example-portfolio-template.netlify.app/).
-
-## Installation
-
-### Step 1: Environment Setup
-```bash
-winget install Schniz.fnm
-fnm use --install-if-missing 20
-node -v # should print `v20.16.0`
-npm -v # should print `10.8.1`
-
-Step 2: Install Tailwind CSS
- npm install -D tailwindcss
-npx tailwindcss init
-
-Step 3: Configure 'tailwind.config.js'
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{html,js}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-
-Step 5: Run Tailwind CSS
-npx tailwindcss -i ./src/styles.css -o ./src/output.css --watch
-
-Step 6: Basic HTML File
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishit Kapoor's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #2d3436;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #00cec9;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+        .hero p {
+            max-width: 600px;
+        }
+        section {
+            padding: 40px 20px;
+            margin: auto;
+            max-width: 800px;
+        }
+        .project, .certification {
+            background: #ffffff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project h3, .certification h3 {
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-info a {
+            color: #00cec9;
+            text-decoration: none;
+        }
+        footer {
+            background: #2d3436;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
 </head>
 <body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-</body>
-</html>
 
-Step 7: Install DaisyUI
-npm i -D daisyui@latest
+<header>
+    <nav>
+        <a href="https://rishitkapoor.me#about">About</a>
+        <a href="https://rishitkapoor.me#projects">Projects</a>
+        <a href="https://rishitkapoor.me#certifications">Certifications</a>
+        <a href="https://rishitkapoor.me#skills">Skills</a>
+        <a href="https://rishitkapoor.me#contact">Contact</a>
+    </nav>
+</header>
 
-Step 8: Update 'tailwind.config.js' to Include DaisyUI
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{html,js}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-    require('daisyui'),
-  ],
-}
-
-Project Structure
-├── src/
-│   ├── components/
-│   │   ├── cv/
-│   │   │   ├── TimeLine
-│   │   ├── BaseHead.astro
-│   │   ├── Card.astro
-│   │   ├── Footer.astro
-│   │   ├── Header.astro
-│   │   └── HorizontalCard.astro
-│   │   └── SideBar.astro
-│   │   └── SideBarMenu.astro
-│   │   └── SideBarFooter.astro
-│   ├── content/
-│   │   ├── blog/
-│   │   │   ├── post1.md
-│   │   │   ├── post2.md
-│   │   │   └── post3.md
-│   │   ├── store/
-│   │   │   ├── item1.md
-│   │   │   ├── item2.md
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   │   └── PostLayout.astro
-│   └── pages/
-│   │   ├── blog/
-│   │   │   ├── [...page].astro
-│   │   │   ├── [slug].astro
-│   │   └── cv.astro
-│   │   └── index.astro
-│   │   └── projects.astro
-│   │   └── rss.xml.js
-│   ├── styles/
-│   │   └── global.css
-│   └── config.ts
-├── public/
-│   ├── favicon.svg
-│   └── profile.webp
-│   └── social_img.webp
-├── astro.config.mjs
-├── tailwind.config.cjs
-├── package.json
-└── tsconfig.json
-
-Site Configuration
-You can change global site configuration in the /src/config.ts file:
-
-SITE_TITLE: Default pages title.
-SITE_DESCRIPTION: Default pages description.
-GENERATE_SLUG_FROM_TITLE: By default, it generates the blog slug pages based on the article name. Set this to false to use the Astro file base (compatible with older versions).
-TRANSITION_API: Enable or disable transition API.
-Components Usage
-Layout Components
-The BaseHead, Footer, Header, and SideBar components are included in the layout system. Edit these components to change the website content.
-
-SideBar
-In the Sidebar, you can change your profile picture, links to all your website pages, and your social icons. You can change your avatar shape using mask classes. The social icons are from the BoxIcons pack. You can replace the icons in the SideBarFooter component. To add a new page in the sidebar, go to the SideBarMenu component.
-<li><a class="py-3 text-base" id="home" href="/">Home</a></li>
-
-Note: To change the sidebar menu's active item, set the prop sideBarActiveItemID in the BaseLayout component of your new page and add that ID to the link in the SideBarMenu.
-
-TimeLine
-The timeline components are used to confirm the CV.
-<div class="time-line-container">
-  <TimeLineElement title="Element Title" subtitle="Subtitle">
-    Content that can contain
-    <div>divs</div>
-    and <span>anything else you want</span>.
-  </TimeLineElement>
-  ...
+<div class="hero">
+    <img src="./Rishit Kapoor's PortfolioNEWMAN_files/Photo Rishit 50 KB ABOVE.jpg" alt="Rishit Kapoor"> 
+ 
+    <h1>Rishit Kapoor</h1>
+    <p>A passionate technology and cybersecurity enthusiast with expertise in cloud solutions and programming.</p>
 </div>
 
+<section id="about">
+    <h2>About Me</h2>
+    <p>I am Rishit Kapoor, dedicated to advancing in the fields of technology, cybersecurity, and development. My projects and certifications showcase my commitment to learning and innovation.</p>
+</section>
 
-Card & HorizontalCard
-The cards are primarily used for the Project and Blog components, including a picture, title, and description.
-<HorizontalCard title="Card Title" img="img_url" desc="Description" url="Link URL" target="Optional link target (_blank default)" badge="Optional badge" tags={['Array','of','tags']} />
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+        <h3>Medimate</h3>
+        <p>An AI-based healthcare application that prioritizes medicine administration and patient observations using Voice-Directed Technology and AI.</p>
+    </div>
+    <div class="project">
+        <h3>21 Days of Coding Event</h3>
+        <p>Organized and coordinated a coding event involving interactive activities, quizzes, and community support.</p>
+    </div>
+    <div class="project">
+        <h3>AI ChatBot</h3>
+        <p>In this project, we created a dynamic multi-agent collaboration system using LangChain and OpenAI's GPT-4, designed to streamline complex workflows. The system leverages specialized agents (like Researcher, Coder, and Chart Generator) coordinated by a supervisor agent, which intelligently manages each task. From configuring libraries to initializing tools, this project showcases advanced AI-driven task management and decision-making capabilities in real-time collaboration.</p>
+    </div>
+</section>
 
-HorizontalCard Shop Item
-This component is included in the Store layout of the template. Use the following props:
-<HorizontalShopItem
-  title="Item Title"
-  img="img_url"
-  desc="Item description"
-  pricing="current_price"
-  oldPricing="old_price"
-  checkoutUrl="external store checkout url"
-  badge="Optional badge"
-  url="item details url"
-  custom_link="Custom link url"
-  custom_link_label="Custom link btn label"
-  target="Optional link target (_self default)"
-/>
+<section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certification">
+        <h3>AWS Cloud with AI Workshop</h3>
+        <a href="http://www.lwindia.com/" target="_blank">
+            <img src="./Rishit Kapoor's PortfolioNEWMAN_files/Rishit Kapoor.pdf" alt="View Certificate" width="200">
+        </a>
+    </div>
+    <div class="certification">
+        <h3>Bootcamp Certificates from AWS, Google, and Devtown</h3>
+        <a href="./Rishit Kapoor's PortfolioNEWMAN_files/rishit-kapoor-33b2b81b0_learnit-manipaluniversityjaipur-righteducation-activity-7172273826230202368-94Ax" target="_blank">
+            <img src="./Rishit Kapoor's PortfolioNEWMAN_files/rishit-kapoor-33b2b81b0_learnit-manipaluniversityjaipur-righteducation-activity-7172273826230202368-94Ax" alt="View Certificates" width="200">
+        </a>
+    </div>
+    <div class="certification">
+        <h3>Hacks 8.0 Certification</h3>
+        <a href="https://certificate.givemycertificate.com/c/addc742e-4e36-470f-9e1f-d6adc93487ec" target="_blank">
+            <img src="" alt="View Certificate" width="200">
+        </a>
+    </div>
+</section>
 
-Adding a Custom Component
-To add a custom component, create a .astro file in the components folder under the src folder. Components must follow this template:
----
-<!-- Component Script (JavaScript) -->
----
-<!-- Component Template (HTML + JS Expressions) -->
-For more details, see the Astro components documentation.
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li>Cybersecurity</li>
+        <li>SQL</li>
+        <li>C Programming</li>
+        <li>Linux Command Line</li>
+        <li>Frontend and Backend Development</li>
+    </ul>
+</section>
 
-Layouts
-Include BaseLayout in each page you add and PostLayout to your post pages. The BaseLayout defines a general template for each new webpage. It imports constants SITE_TITLE and SITE_DESCRIPTION which can be modified in the ../config folder.
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+        <p>Email: <a href="mailto:rishitkpr@gmail.com">rishitkpr@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/rishit-kapoor-33b2b81b0/">Rishit Kapoor</a></p>
+    </div>
+</section>
 
-Content
-Add a content collection in the /content/ folder. You will need to add it in config.ts.
+<footer>
+    <p>© 2024 Rishit Kapoor. All rights reserved.</p>
+</footer>
 
-Blog
-Add your .md blog post in the /content/blog/ folder.
-
-Post Format
-Add the following code at the top of each post file:
----
-title: "Post Title"
-description: "Description"
-pubDate: "Post date format (Sep 10 2022)"
-heroImage: "Post Hero Image URL"
----
-
-Pages
-Blog
-The blog uses Astro's content collection to query post's .md.
-
-[page].astro
-The [page].astro route works with the paginated post list. Change the number of items listed for each page and the pagination button labels here.
-
-[slug].astro
-The [slug].astro route is the base for every blog post. Customize the page layout or behavior. By default, it uses content/blog for content collection and PostLayout as layout.
-
-Shop
-Add your .md item in the /pages/shop/ folder.
-
-[page].astro
-The [page].astro route works with the paginated item list. Change the number of items listed for each page and the pagination button labels here. The shop will render all .md files inside this folder.
-
-Item Format
-Add the following code at the top of each item file:
----
-title: "Demo Item 1"
-description: "Item description"
-heroImage: "Item img URL"
-details: true # show or hide details btn
-custom_link_label: "Custom btn link label"
-custom_link: "Custom btn link"
-pubDate: "Sep 15 2022"
-pricing: "$15"
-oldPricing: "$25.5"
-badge: "Featured"
-checkoutUrl: "https://checkouturl.com/"
----
-
-Static Pages
-The other pages included in the template are static pages. The index page belongs to the root page. Add your pages directly in the /pages folder and then add a link to those pages in the sidebar component.
-
-Theming
-To change the template theme, change the data-theme attribute of the <html> tag in the BaseLayout.astro file. Choose among 30 themes available or create your custom theme. See themes available here.
-
-Sitemap
-The Sitemap is generated automatically when you build your website in the root of the domain. Update the robots.txt file in the public folder with your site name URL for the Sitemap.
-
-Deploy
-You can deploy your site on your favorite static hosting service such as Vercel, Netlify, GitHub Pages, etc. Configuration for deployment varies depending on the platform. See the official Astro information to deploy your website.
-
-Note: The Blog pagination of this template is implemented using dynamic route parameters in its filename and is incompatible with SSR deploy configs. Use the default static deploy options for your deployments.
-
-This separation should help in maintaining clear and organized files for your project.
-
+</body>
+</html>
